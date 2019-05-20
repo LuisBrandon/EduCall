@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro de alumno</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/alumnoreg.css">
+    <script src="../js/logcheck.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+
+        function AgregarProvincias() {
+            var provincias = ['Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Avila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres',
+                'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'La Coruña', 'Cuenca', 'Gerona', 'Granada', 'Guadalajara',
+                'Guipúzcoa', 'Huelva', 'Huesca', 'Islas Baleares', 'Jaén', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra',
+                'Orense', 'Palencia', 'Las Palmas', 'Pontevedra', 'La Rioja', 'Salamanca', 'Segovia', 'Sevilla', 'Soria', 'Tarragona',
+                'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza'];
+            
+            for (var i = 0; i < provincias.length; i++) {
+                $('#provincia').append( '<option value="'+provincias[i]+'">'+provincias[i]+'</option>' );
+
+            }
+        }
+
+
+        $(document).ready(function () {
+            
+            AgregarProvincias();
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <option value=""></option>
+
+    <!-- 
+        Nombre
+        Apellido1
+        Apellido2
+        email
+        Telefono
+        Provincia
+        ciudad
+
+        Esto se lo he quitado al formulario de momento: onsubmit="return validform()" (la función tiene alerts y no mola)
+        onsubmit es si la función que le asignamos devuelve true hace la llamada al archivo php. Si devuelve false pues
+        no hace nada (en este caso quiero rellenar la etiqueta con id: error-registro con los fallos que tenga en el formulario)
+     -->
+
+
+    <main class="my-form">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header text-center">Registro de profesor</div>
+                        <span id="error-registro" class="alert alert-danger text-center" style="display:none;"></span>
+                        <div class="card-body">
+                            <form name="my-form" onsubmit="CompruebaRegistroProfesor()" action="#" method="POST">
+                                <div class="form-group row">
+                                    <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre*</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="nombre" class="form-control" name="nombre">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Primer
+                                        apellido*</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="email_address" class="form-control" name="email-address">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">Segundo
+                                        Apellido</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="user_name" class="form-control" name="username">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="phone_number"
+                                        class="col-md-4 col-form-label text-md-right">Email*</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="phone_number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
+                                        Contraseña*</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="password" class="form-control" name="password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
+                                        Primera asignatura*</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="primeraasignatura" class="form-control"
+                                            name="primeraasignatura">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
+                                        Segunda asignatura</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="segundaasignatura" class="form-control"
+                                            name="segundaasignatura">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label for="present_address"
+                                        class="col-md-4 col-form-label text-md-right">Teléfono</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="telefono" class="form-control" name="telefono">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="permanent_address"
+                                        class="col-md-4 col-form-label text-md-right">Provincia*</label>
+                                    <div class="col-md-6">
+                                        <select name="provincia" id="provincia" class="form-control">
+                                            <option value="opcion">Seleccionar</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
+                                        Ciudad*</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="nid_number" class="form-control" name="nid-number">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Registrarse
+                                    </button>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </main>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
