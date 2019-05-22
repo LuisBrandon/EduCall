@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2019 a las 17:56:48
+-- Tiempo de generación: 22-05-2019 a las 18:55:20
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -82,8 +82,9 @@ CREATE TABLE `profesor` (
   `provincia` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `ciudad` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `fechaRegistro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `nivelAcademico` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `asignatura1` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
-  `asignatura2` int(35) DEFAULT NULL
+  `asignatura2` varchar(35) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -95,6 +96,7 @@ CREATE TABLE `profesor` (
 CREATE TABLE `valoraciones` (
   `id` int(11) NOT NULL,
   `idprofesor` int(11) NOT NULL,
+  `idalumno` int(11) NOT NULL,
   `totalvaloraciones` int(11) NOT NULL,
   `vecesvalorado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;

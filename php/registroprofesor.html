@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro de alumno</title>
+    <title>Registro de profesor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="../css/estilos.css">
@@ -33,6 +33,11 @@
             AgregarProvincias();
         });
 
+        function CompruebaRegistroProfesor(){
+
+        }
+
+        //id="error-registro"
 
 
     </script>
@@ -73,31 +78,31 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Primer
+                                    <label for="primerApellido" class="col-md-4 col-form-label text-md-right">Primer
                                         apellido*</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="email-address">
+                                        <input type="text" id="primerApellido" class="form-control" name="primerApellido">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">Segundo
+                                    <label for="segundoApellido" class="col-md-4 col-form-label text-md-right">Segundo
                                         Apellido</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="user_name" class="form-control" name="username">
+                                        <input type="text" id="segundoApellido" class="form-control" name="segundoApellido">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="phone_number"
+                                    <label for="email"
                                         class="col-md-4 col-form-label text-md-right">Email*</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="phone_number" class="form-control">
+                                        <input type="email" id="email" class="form-control" name="email">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">
                                         Contraseña*</label>
                                     <div class="col-md-6">
                                         <input type="password" id="password" class="form-control" name="password">
@@ -105,11 +110,31 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
+                                    <label for="primerNivelAcademico"
+                                        class="col-md-4 col-form-label text-md-right">Nivel académico de la primera asignatura</label>
+                                    <div class="col-md-6">
+                                        <select name="primerNivelAcademico" id="primerNivelAcademico" class="form-control">
+                                            <option value="seleccionar">Seleccionar</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="primeraAsignatura" class="col-md-4 col-form-label text-md-right">
                                         Primera asignatura*</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="primeraasignatura" class="form-control"
-                                            name="primeraasignatura">
+                                        <input type="text" id="primeraAsignatura" class="form-control"
+                                            name="primeraAsignatura">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="segundoNivelAcademico"
+                                        class="col-md-4 col-form-label text-md-right">Nivel académico de la segunda asignatura</label>
+                                    <div class="col-md-6">
+                                        <select name="segundoNivelAcademico" id="segundoNivelAcademico" class="form-control">
+                                            <option value="seleccionar">Seleccionar</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -118,14 +143,14 @@
                                     <label for="nid_number" class="col-md-4 col-form-label text-md-right">
                                         Segunda asignatura</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="segundaasignatura" class="form-control"
-                                            name="segundaasignatura">
+                                        <input type="text" id="segundaAsignatura" class="form-control"
+                                            name="segundaAsignatura">
                                     </div>
                                 </div>
 
 
                                 <div class="form-group row">
-                                    <label for="present_address"
+                                    <label for="telefono"
                                         class="col-md-4 col-form-label text-md-right">Teléfono</label>
                                     <div class="col-md-6">
                                         <input type="text" id="telefono" class="form-control" name="telefono">
@@ -133,7 +158,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="permanent_address"
+                                    <label for="provincia"
                                         class="col-md-4 col-form-label text-md-right">Provincia*</label>
                                     <div class="col-md-6">
                                         <select name="provincia" id="provincia" class="form-control">
@@ -146,7 +171,7 @@
                                     <label for="nid_number" class="col-md-4 col-form-label text-md-right">
                                         Ciudad*</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="nid_number" class="form-control" name="nid-number">
+                                        <input type="text" id="ciudad" class="form-control" name="ciudad">
                                     </div>
                                 </div>
 
@@ -165,9 +190,6 @@
         </div>
 
     </main>
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
