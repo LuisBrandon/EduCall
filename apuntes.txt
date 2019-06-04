@@ -1,0 +1,2 @@
+(Cuando un profesor se registre para impartir primaria, se da por sentado que puede dar cualquier asignatura)
+CAMBIAR LOS COLORES DEL REGISTRO
