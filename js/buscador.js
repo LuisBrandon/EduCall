@@ -5,16 +5,19 @@ function CompruebaEtapa() {
         // LimpiarEtapas();
         // RellenaEtapas();
         LimpiarNiveles();
+        LimpiarAsignaturas();
         NivelesPrimaria();
     }
     if (etapa == "Secundaria") {
         // LimpiarEtapas();
         // RellenaEtapas();
         LimpiarNiveles();
+        LimpiarAsignaturas();
         NivelesSecundaria();
     }
     if(etapa == "Bachillerato"){
         LimpiarNiveles();
+        LimpiarAsignaturas();
         NivelesBachillerato();
     }
 }
@@ -29,12 +32,44 @@ function CompruebaNivel(){
     }
 
     //Los de secundaria
-    if(nivel == "1º ESO" || nivel == "2º ESO" || nivel == "3º ESO" || nivel == "4º ESO"){
+    if(nivel == "1º ESO" || nivel == "2º ESO" || nivel == "3º ESO"){
         LimpiarAsignaturas();
         AsignaturasSecundaria();
+    }
+    if(nivel == "4º ESO"){
+        LimpiarAsignaturas();
+        AsignaturasCuartoESO();
     }
 
 
     //Los de bachillerato
-    // if(nivel ==)
+    if(nivel  == "1º Bachillerato Científico"){
+        LimpiarAsignaturas();
+        AsignaturasPrimeroBachCiencias();
+    }
+
+    if(nivel == "1º Bachillerato Humanidades y Ciencias Sociales"){
+        LimpiarAsignaturas();
+        AsignaturasPrimeroBachHumSoc();
+    }
+    if(nivel == "1º Bachillerato Artístico"){
+        LimpiarAsignaturas();
+        AsignaturasPrimeroBachArt();
+    }
+    
+    if(nivel == "2º Bachillerato Científico"){
+        LimpiarAsignaturas();
+        AsignaturasSegundoBachCiencias();        
+    }
+
+    if(nivel == "2º Bachillerato Humanidades y Ciencias Sociales"){
+        LimpiarAsignaturas();
+        AsignaturasSegundoBachHumSoc();
+    }
+
+    if(nivel == "2º Bachillerato Artístico"){
+        LimpiarAsignaturas();
+        AsignaturasSegundoBachArt();
+    }
+
 }
