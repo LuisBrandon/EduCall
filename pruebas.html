@@ -8,55 +8,17 @@
     <title>Document</title>
     <script src="js/jquery.min.js"></script>
     <script src="js/funcionesAsignaturas.js"></script>
+    <script src="js/buscador.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
+    
     <script>
-
-        window.onload() = function () {
+        window.onload = function () {
             LimpiarEtapas();
             LimpiarNiveles();
             LimpiarAsignaturas();
+            RellenaEtapas();
         }
-
-        function CompruebaCampos() {
-            var etapa = $("#EtapaAcademica").val();
-            var nivel = $("#nivelAcademico").val();
-            var asignatura = $("#asignatura").val();
-            if (etapa == " " || nivel == " " || asignatura == " ") {
-                alert("Error, hay algún campo vacío");
-                return false;
-            }
-
-        }
-
-        function CompruebaPrimerNivel() {
-            var etapa = $("#EtapaAcademica").val();
-            var nivel = $("#nivelAcademico").val();
-
-
-            if (etapa == " " || nivel == " ") {
-                LimpiarNiveles();
-                LimpiarAsignaturas();
-            }
-
-            if (etapa == "Primaria") {
-                NivelesPrimaria();
-                AsignaturasPrimaria();
-            }
-
-            if (etapa == "Secundaria") {
-                NivelesSecundaria();
-                AsignaturasSecundaria();
-            }
-
-            if (etapa == "Secundaria" && nivel == "1º ESO") {
-                AsignaturasSecundaria();
-            }
-
-        }
-
-
-
     </script>
 </head>
 
@@ -72,23 +34,19 @@
         </select> -->
         <form action="pruebas.php" method="POST" onsubmit="return CompruebaCampos()" name="formulario">
             <label for="EtapaAcademica">Etapa académica: </label>
-            <select name="EtapaAcademica" id="EtapaAcademica" onchange="CompruebaPrimerNivel()" class="form-control">
+            <select name="EtapaAcademica" id="EtapaAcademica" onchange="CompruebaEtapa()" class="form-control">
                 <option value=" ">----</option>
-                <option value="Infantil">Infantil</option>
-                <option value="Primaria">Primaria</option>
-                <option value="Secundaria">Secundaria</option>
-                <option value="Bachillerato">Bachillerato</option>
             </select> <br>
 
 
             <label for="nivelAcademico">Nivel académico: </label>
-            <select name="nivelAcademico" id="nivelAcademico" onchange="CompruebaPrimerNivel()" class="form-control">
+            <select name="nivelAcademico" id="nivelAcademico" onchange="CompruebaNivel()" class="form-control">
                 <option value=" ">----</option>
             </select> <br>
 
             <label for="asignatura"> Asignatura: </label>
-            <select name="asignatura" id="asignatura" class="form-control">
-                <option value=" "> </option>
+            <select name="asignatura" id="asignatura" class="form-control" onchange="CompruebaPrimerNivel()">
+                <option value=" ">----</option>
             </select><br>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
