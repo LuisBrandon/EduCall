@@ -10,6 +10,12 @@ body{
     text-align: left;
     background-color: #f5faf7;
 }
+#cabeceraRegAlum{
+    background-color: rgb(74, 201, 112);
+}
+body{
+    background-color: rgb(212, 226, 233);
+}
 
 .navbar-laravel
 {
@@ -44,3 +50,4 @@ body{
     margin-left: 0;
     margin-right: 0;
 }
+

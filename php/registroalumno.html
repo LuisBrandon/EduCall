@@ -10,6 +10,8 @@
     
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/alumnoreg.css">
+    <link rel="stylesheet" href="../css/fontawesome/css/all.css">
+    <script src="../css/fontawesome/js/all.js"></script>
     <script src="../js/logcheck.js"></script>
     <script src="../js/jquery.min.js"></script>
     <script>
@@ -62,7 +64,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header text-center">Registro de alumno</div>
+                        <div class="card-header text-center" id="cabeceraRegAlum">Registro de alumno</div>
                         <span id="error-registro" class="alert alert-danger text-center" style="display:none;"></span>
                         <div class="card-body">
                             <form name="my-form" onsubmit="CompruebaRegistroAlumno()" action="#" method="POST">
@@ -134,7 +136,7 @@
 
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Registrarse
+                                        <i class="fas fa-book"></i> Registrarse
                                     </button>
                                 </div>
                         </div>
