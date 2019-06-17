@@ -1,6 +1,6 @@
 //Asignaturas
 var primaria = ["Lengua Castellana y Literatura","Matemáticas","Ciencias de la Naturaleza","Ciencias Sociales"
-,"Inglés","Educación Física", "Religión","Valores Sociales y Cívicos","Educación Artística"];
+,"Inglés","Francés","Educación Física", "Religión","Valores Sociales y Cívicos","Educación Artística"];
 
 var secundaria = ["Biología y Geología","Geografía e Historia","Lengua Castellana y Literatura","Matemáticas","Inglés","Francés","Música","Tecnología","Educación Plástica","Educación Física","Cultura Clásica"];
 var secundariaCuarto = ["Geografía e Historia","Lengua Castellana y Literatura","Matemáticas","Biología y Geología","Economía","Física y Química","Latín","Ciencias Aplicadas a la Actividad Profesional","Iniciación a la Actividad Emprendedora y Empresarial","Tecnología"];
@@ -149,7 +149,7 @@ function CompruebaCampos(){
     var etapa = $("#EtapaAcademica").val();
     var nivel = $("#nivelAcademico").val();
     var asignatura = $("#asignatura").val();
-    console.log(etapa,nivel,asignatura);
+
     if(etapa == "nada" || nivel == "nada" || asignatura == "nada"){
         bootbox.alert("Oops! Has dejado algún campo vacío.")
         return false;
@@ -158,3 +158,7 @@ function CompruebaCampos(){
     }
     
 }
+
+
+
+

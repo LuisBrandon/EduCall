@@ -7,69 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro de profesor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+    <link rel="icon" href="../img/owl.png">
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/profreg.css">
-    <script src="../js/logcheck.js"></script>
+    <link rel="stylesheet" href="../css/fontawesome/css/all.css">
     <script src="../js/jquery.min.js"></script>
-    <script>
-
-        function AgregarProvincias() {
-            var provincias = ['Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Avila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres',
-                'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'La Coruña', 'Cuenca', 'Gerona', 'Granada', 'Guadalajara',
-                'Guipúzcoa', 'Huelva', 'Huesca', 'Islas Baleares', 'Jaén', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra',
-                'Orense', 'Palencia', 'Las Palmas', 'Pontevedra', 'La Rioja', 'Salamanca', 'Segovia', 'Sevilla', 'Soria', 'Tarragona',
-                'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza'];
-            
-            for (var i = 0; i < provincias.length; i++) {
-                $('#provincia').append( '<option value="'+provincias[i]+'">'+provincias[i]+'</option>' );
-
-            }
-        }
-
-
-        $(document).ready(function () {
-            
-            AgregarProvincias();
-        });
-
-        function CompruebaRegistroProfesor(){
-
-        }
-
-        //id="error-registro"
-
-
-    </script>
+    <script src="../css/fontawesome/js/all.js"></script>
+    <script src="../js/provincias.js"></script>
+    <script src="../js/bootbox.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/asignaturasProfesor.js"></script>
 </head>
 
 <body>
-    <option value=""></option>
-
-    <!-- 
-        Nombre
-        Apellido1
-        Apellido2
-        email
-        Telefono
-        Provincia
-        ciudad
-
-        Esto se lo he quitado al formulario de momento: onsubmit="return validform()" (la función tiene alerts y no mola)
-        onsubmit es si la función que le asignamos devuelve true hace la llamada al archivo php. Si devuelve false pues
-        no hace nada (en este caso quiero rellenar la etiqueta con id: error-registro con los fallos que tenga en el formulario)
-     -->
-
-
     <main class="my-form">
         <div class="cotainer">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header text-center" id="cabeceraRegProf">Registro de profesor</div>
-                        <span id="error-registro" class="alert alert-danger text-center" style="display:none;"></span>
                         <div class="card-body">
-                            <form name="my-form" onsubmit="CompruebaRegistroProfesor()" action="#" method="POST">
+                            <form name="my-form" id="formProfesor">
                                 <div class="form-group row">
                                     <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre*</label>
                                     <div class="col-md-6">
@@ -78,88 +36,91 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="primerApellido" class="col-md-4 col-form-label text-md-right">Primer
+                                    <label for="apellido1" class="col-md-4 col-form-label text-md-right">Primer
                                         apellido*</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="primerApellido" class="form-control" name="primerApellido">
+                                        <input type="text" id="apellido1" class="form-control" name="apellido1">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="segundoApellido" class="col-md-4 col-form-label text-md-right">Segundo
+                                    <label for="apellido2" class="col-md-4 col-form-label text-md-right">Segundo
                                         Apellido</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="segundoApellido" class="form-control" name="segundoApellido">
+                                        <input type="text" id="apellido2" class="form-control" name="apellido2">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">Email*</label>
-                                    <div class="col-md-6">
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">Email*</label>
+                                    <div class="col-md-6" id="divemail">
                                         <input type="email" id="email" class="form-control" name="email">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">
+                                    <label for="pass" class="col-md-4 col-form-label text-md-right">
                                         Contraseña*</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control" name="password">
+                                        <input type="password" id="pass" class="form-control" name="pass">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="primerNivelAcademico"
-                                        class="col-md-4 col-form-label text-md-right">Nivel académico de la primera asignatura</label>
+                                    <label for="nivelAcademicoPriAsig" class="col-md-4 col-form-label text-md-right">Nivel académico de la primera asignatura*</label>
                                     <div class="col-md-6">
-                                        <select name="primerNivelAcademico" id="primerNivelAcademico" class="form-control">
-                                            <option value="seleccionar">Seleccionar</option>
+                                        <select name="nivelAcademicoPriAsig" id="nivelAcademicoPriAsig" class="form-control" onchange="nivelPriAsig()">
+                                            <option value=" ">---</option>
+                                            <option value="Primaria">Primaria</option>
+                                            <option value="Secundaria">Secundaria</option>
+                                            <option value="Bachillerato">Bachillerato</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="primeraAsignatura" class="col-md-4 col-form-label text-md-right">
+                                    <label for="asignatura1" class="col-md-4 col-form-label text-md-right">
                                         Primera asignatura*</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="primeraAsignatura" class="form-control"
-                                            name="primeraAsignatura">
+                                    <div class="col-md-6" id="divPrimeraAsignatura">
+                                        <select name="asignatura1" id="asignatura1" class="form-control">
+                                            <option value=" " selected></option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="segundoNivelAcademico"
-                                        class="col-md-4 col-form-label text-md-right">Nivel académico de la segunda asignatura</label>
+                                    <label for="nivelAcademicoSegAsig" class="col-md-4 col-form-label text-md-right">Nivel académico de la segunda asignatura*</label>
                                     <div class="col-md-6">
-                                        <select name="segundoNivelAcademico" id="segundoNivelAcademico" class="form-control">
-                                            <option value="seleccionar">Seleccionar</option>
+                                        <select name="nivelAcademicoSegAsig" id="nivelAcademicoSegAsig" class="form-control" onchange="nivelSegAsig()">
+                                                <option value=" ">---</option>   
+                                                <option value="Primaria">Primaria</option>
+                                                <option value="Secundaria">Secundaria</option>
+                                                <option value="Bachillerato">Bachillerato</option>
                                         </select>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group row">
-                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
-                                        Segunda asignatura</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="segundaAsignatura" class="form-control"
-                                            name="segundaAsignatura">
+                                    <label for="asignatura2" class="col-md-4 col-form-label text-md-right">
+                                        Segunda asignatura*</label>
+                                    <div class="col-md-6" id="divSegundaAsignatura">
+                                        <select name="asignatura2" id="asignatura2" class="form-control">
+                                            <option value=" " selected></option>
+                                        </select>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group row">
-                                    <label for="telefono"
-                                        class="col-md-4 col-form-label text-md-right">Teléfono</label>
+                                    <label for="telefono" class="col-md-4 col-form-label text-md-right">Teléfono</label>
                                     <div class="col-md-6">
                                         <input type="text" id="telefono" class="form-control" name="telefono">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="provincia"
-                                        class="col-md-4 col-form-label text-md-right">Provincia*</label>
+                                    <label for="provincia" class="col-md-4 col-form-label text-md-right">Provincia*</label>
                                     <div class="col-md-6">
                                         <select name="provincia" id="provincia" class="form-control">
                                             <option value="opcion">Seleccionar</option>
@@ -168,17 +129,15 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right">
-                                        Ciudad*</label>
+                                    <label for="infoAdicional" class="col-md-4 col-form-label text-md-right">Información</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="ciudad" class="form-control" name="ciudad">
+                                        <textarea name="infoAdicional" class="form-control" placeholder="Aquí deberás poner tu experiencia como profesor." id="infoAdicional" cols="30" rows="5"></textarea>
+                                        </select>
                                     </div>
                                 </div>
-
-
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6 offset-md-4" id="divRegistro">
                                     <button type="submit" class="btn btn-primary">
-                                        Registrarse
+                                        <i class="fas fa-chalkboard-teacher"> </i> Registrarse
                                     </button>
                                 </div>
                         </div>
@@ -191,16 +150,9 @@
 
     </main>
 
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../js/registroprofesor.js"></script>
 
 
 </body>

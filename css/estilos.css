@@ -1,17 +1,16 @@
 #BarraNav{
     background-color: rgb(74, 201, 112) !important;
 }
-
-#FooterPagina{
-    background-color: rgb(219, 134, 23) !important;
+#dandoClase{
+    background-color: rgb(255, 127, 125) !important;
 }
 
 /* .imagenNav{
     mix-blend-mode: multiply;
-
 } */
 
 /* Colores: 
 Background color de la barra de navegación: rgb(219, 134, 23)
+background-color: rgb(74, 201, 112) !important; navBar
 
 */

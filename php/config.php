@@ -1,17 +1,26 @@
 <?php
-
-
-/* Database connection start */
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pruebaproyecto";
-$conn = mysqli_connect($servername, $username, $password, $dbname) or die("Algo ha ido mal: " . mysqli_connect_error());
-
-if (mysqli_connect_errno()) {
-printf("Conexión fallida: %s\n", mysqli_connect_error());
-exit();
+class Database{
+ 
+    // specify your own database credentials
+    private $host = "localhost";
+    private $db_name = "educall";
+    private $username = "root";
+    private $password = "";
+    public $conn;
+ 
+    // get the database connection
+    public function getConnection(){
+ 
+        $this->conn = null;
+        try{
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn->exec("set names utf8");
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }catch(PDOException $exception){
+            echo "Error de conexión: " . $exception->getMessage();
+        }
+ 
+        return $this->conn;
+    }
 }
-
-
 ?>

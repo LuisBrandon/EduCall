@@ -12,52 +12,28 @@
     <link rel="stylesheet" href="css/estilos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="js/jquery.min.js"></script>
-    <style>
-        /* imagen de Einstein: 350x460 
-            páginas de donde he sacado las imágenes y tal:
-            freepik.es
-            flaticon.com
-        */
-        /* #profesorInfo {
-            border-style: solid;
-        }
-
-        #alumnoInfo {
-            border-style: solid;
-        } */
-    </style>
-    <script>
-        window.onload = function () {
-            $("#profesorInfo").css("display","none");
-            $("#alumnoInfo").css("display","none");
-
-            $("#profesorInfo").fadeIn(3000);
-            $("#alumnoInfo").fadeIn(3000);
-            // $("#profesorInfo").slideDown("slow");
-            // $("#alumnoInfo").slideDown("slow");
-        }
-
-    </script>
+    
+    
+    <script src="js/principal.js"></script>
 </head>
 
 <body>
-    <header>
+    <header >
         <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top" id="BarraNav">
             <div class="container">
-                <a href="#" class="navbar-brand">
+                <a href="index.html" class="navbar-brand">
                     <img src="img/pruebalogo1.png" alt="logotipo con nombre" width="200px" height="70px"
                         class="imagenNav">
                 </a>
 
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu-principal"
+                <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu-principal"
                     aria-controls="menu-principal" aria-expanded="false" aria-label="Desplegar menú de navegación">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> -->
 
-                <div class="collapse navbar-collapse" id="menu-principal">
+                <div id="menu-principal">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="#" class="nav-link active">Login</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Registrarse</a></li>
+                        <li class="nav-item h5"><a href="php/login/login.php" class="nav-link active">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -65,15 +41,16 @@
     </header>
 
     <section class="quien-soy py-4 mt-5">
-        <div class="container">
+        <div class="container mt-3">
             <div class="row">
-                <div class="col-12 col-md-6 text-center p-3" id="profesorInfo">
-                    <img src="img/profe.jpg" alt="Soy el  desarrolador" class="img-fluid mb-4 mb-md-0 mt-5"
-                        width="350px" height="200px">
+                <div class="col-12 col-md-6 text-center p-3 mt-4" id="profesorInfo">
+                    <h5 class="mt-3" id="eresProf">¿Eres profesor?</h5>
+                    <img src="img/profesor0-min.jpg" id="imagenProfesor" alt="imagen de un profesor" class="img-fluid mb-4 mb-md-0 mt-2 rounded">
+                    <p></p>
                 </div>
-                <div class="col-12 col-md-6 text-center text-md-left align-self-md-center" id="alumnoInfo">
-
-                    <img src="img/alumno.jpg" alt="" width="350px" class="img-fluid mb-4 mb-md-0 mt-5">
+                <div class="col-12 col-md-6 text-center p-3 mt-4" id="alumnoInfo">
+                    <h5 class="mt-3" id="eresAlumno">¿Eres alumno?</h5>
+                    <img src="img/alumno-min.jpg" id="imagenAlumno" class="img-fluid mb-4 mb-md-0 mt-2 rounded" >
 
                     </p>
                 </div>
@@ -82,30 +59,23 @@
     </section>
 
 
-    <section class="filosofia py-4 bg-primary text-center text-white">
+    <section class="filosofia py-4  text-center text-white" id="dandoClase">
 
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <img src="img/profe.jpg" width="260" height="auto" alt="Avatar de Tomas Mendez"
-                        class="img-fluid rounded-circle mb-4">
-                    <p class="h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis odio amet nulla
-                        ad nobis
-                        minima doloribus inventore, aspernatur distinctio dicta ipsam fugit suscipit ullam architecto
-                        eos molestias
-                        placeat rerum facere.</p>
-                    <p class="h4 font-italic">- Tomas Mendez</p>
+                <div class="col-12 col-md-6">
+                    <img src="img/dandoClase.jpg"  class="rounded" width="360px" height="350px">
+                    
+                </div>
+                <div class="col-12 col-md-6">
+                    <p  class="h3" style="color:black; font-family: Georgia">¿Necesitas ayuda académica? <br></p> <p class="h4" style="font-family: serif;">Regístrate y usa nuestro buscador para buscar un profesor cercano </p>
+                    <p class="h3 mt-3" style="color:black; font-family: Georgia;">¿Quieres impartir clase a alumnos?</p>  <p class="h4" style="font-family: serif;">Regístrate y aparecerás en el buscador para los alumnos que necesiten tu ayuda</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="proyectos py-4">
-        <div class="container">
-
-        </div>
-
-
 
 
     </section>
@@ -113,9 +83,10 @@
 
 
 
-    <footer class="pie-de-pagina text-center text-md-right bg-dark text-white" id="FooterPagina">
+    <footer class="pie-de-pagina text-center text-md-center bg-dark text-white" id="FooterPagina">
         <div class="container">
-            <p class="m-0 py-3">Copyright © 2018. Todos los derechos reservados. </p>
+            <p class="m-0 py-5 d-md">Copyright © 2019. Todos los derechos reservados. </p>
+            <p class="d-none d-md d-sm py-md-4"> </p>
         </div>
     </footer>
 
